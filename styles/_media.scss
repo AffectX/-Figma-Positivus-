@@ -1,0 +1,75 @@
+$dekstop: 1280px;
+$dekstop-above: 1281px;
+
+$tablet: 1023px;
+$tablet-above: 1024px;
+
+$mobile: 767px;
+$mobile-above: 768px;
+
+$mobile-s: 480px;
+$mobile-s-above: 481px;
+
+@mixin desktop {
+  @media (max-width: $dekstop) {
+    @content;
+  }
+}
+
+@mixin desktop-above {
+  @media (min-width: $dekstop-above) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin tablet-above {
+  @media (min-width: $tablet-above) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin mobile-above {
+  @media (min-width: $mobile-above) {
+    @content;
+  }
+}
+
+@mixin mobile-s {
+  @media (max-width: $mobile-s) {
+    @content;
+  }
+}
+
+@mixin mobile-s-above {
+  @media (min-width: $mobile-s-above) {
+    @content;
+  }
+}
+
+@mixin hover {
+  //для обычных устройств, где наведение курсора возможно
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  // для устройств с тачэкраном, где привычное наведение курсора невозможно
+  @media (hover: none) {
+    &:active {
+      @content;
+    }
+  }
+}
